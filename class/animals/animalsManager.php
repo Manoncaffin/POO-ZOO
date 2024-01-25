@@ -17,15 +17,11 @@ class animalsManager
     {
         $request = $this->db->prepare("INSERT INTO animals (id, name, weight, size, age) VALUES (:id, :name, :weight, :size, :age)"); 
         $request->execute([
-            'id' => $animals->getId(),
             'name' => $animals->getName(),
             'weight' => $animals->getWeight(),
             'size' => $animals->getSize(),
             'age' => $animals->getAge(),
         ]);
-
-        $id = $this->db->lastInsertId();
-        $animals->setId($id); 
     }
 
     public function find($id) : Animals

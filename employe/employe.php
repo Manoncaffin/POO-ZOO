@@ -50,39 +50,39 @@ class Employe {
     }
 
     // fonctions (fonctionnent en dehors de l'objet)
-    public function examinedEnclosure($enclosure)
+    public function examinedEnclosure(Enclosure $enclosure)
     {
-
+        var_dump($this->name . " examines the enclosure.");
     }
 
-    public function cleanEnclosure($enclosure)
+    public function cleanEnclosure(Enclosure $enclosure)
     {
-
+        var_dump($this->name . " clean the enclosure.");
     }
 
-    public function feedAnimals($animals)
+    public function feedAnimals(Animals $animals, Enclosure $enclosure)
     {
-
+        var_dump($this->name . " treats an animal.");
     }
 
-    public function addAnimals($animals)
+    public function addAnimals(Animals $animals, Enclosure $enclosure)
     {
-
+        var_dump($this->name . " add an animal.");
     }
 
-    public function deleteAnimals($animals)
+    public function deleteAnimals(Animals $animals, Enclosure $enclosure)
     {
-
+        var_dump($this->name . " removes an animal.");
     }
 
-    public function transferAnimals($animals)
+    public function transferAnimals(Animals $animals, Enclosure $enclosure)
     {
-
+        var_dump($this->name . " transfers an animal.");
     }
 
     public function interfaceUser()
     {
-
+        var_dump("Take place of " . $this->name . " in the zoo.");
     }
     
 

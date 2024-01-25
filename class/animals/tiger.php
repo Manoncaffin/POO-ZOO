@@ -1,12 +1,16 @@
 <?php
 
-class Tiger extends animals {
+class Tiger extends Animals {
 
-public function wanderer()
-{
-    
-}
+    public function makeSound()
+    {
+        echo "The tiger roars.\n";
+    }   
 
+    public function wake()
+    {
+        echo "The tiger walks.\n";
+    }
 
 }
 

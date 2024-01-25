@@ -5,7 +5,7 @@ class Zoo {
     // private $id;
     private $name;
     private $employe;
-    private $enclosureNumber;
+    private $maxEnclosure;
     private $enclosureArray;
 
     // méthodes (fonctions qui passent par l'objet)
@@ -39,14 +39,14 @@ class Zoo {
         return $this->employe;
     }
 
-    public function setEnclosureNumber($enclosureNumber)
+    public function setEnclosureNumber($maxEnclosure)
     {
-        $this->enclosureNumber = $enclosureNumber;
+        $this->maxEnclosure = $maxEnclosure;
     }
 
     public function getEnclosureNumber()
     {
-        return $this->enclosureNumber;
+        return $this->maxEnclosure;
     }
 
     public function setEnclosureArray($enclosureArray)

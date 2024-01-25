@@ -1,9 +1,16 @@
 <?php
 
-class Enclosure {
+abstract class Enclosure {
     private $name;
     private $cleanliness;
     private $animalsNumber;
+
+    public function __construct($name, $cleanliness, $animalsNumber)
+    {
+        $this->name = $name;
+        $this->cleanliness = $cleanliness;
+        $this->animalsNumber = $animalsNumber;
+    }
 
     // méthodes (fonctions qui passent par l'objet)
     public function setName($name)
@@ -42,17 +49,17 @@ class Enclosure {
 
     }
 
-    public function propertyAnimals($animals)
+    public function propertyAnimals(Animal $animals)
     {
 
     }
 
-    public function addAnimals($animals)
+    public function addAnimals(Animal $animals)
     {
 
     }
 
-    public function deleteAnimals($animals)
+    public function deleteAnimals(Animal $animals)
     {
 
     }
@@ -61,6 +68,11 @@ class Enclosure {
     {
 
     }
+
+    // abstract public function detailEnclosure()
+    // {
+
+    // }
 
 
 

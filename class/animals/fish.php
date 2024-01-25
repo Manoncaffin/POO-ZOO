@@ -1,13 +1,12 @@
 <?php
 
-class Fish extends animals {
+class Fish extends Animals {
 
-    public function swim()
-{
-    
+    public function wake()
+    {
+        echo "The tiger swim.\n";
+    }
+
 }
-
-}
-
 
 ?>
