@@ -1,6 +1,6 @@
 <?php
 
-class Aigle extends animals {
+class Eagle extends animals {
 
 
     public function fly()

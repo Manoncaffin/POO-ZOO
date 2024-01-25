@@ -1,6 +1,6 @@
 <?php
 
-class animals {
+class Animals {
     private int $id;
     private string $name;
     private int $weight;
@@ -12,6 +12,7 @@ class animals {
         
     }
 
+    // méthodes (fonctions qui passent par l'objet)
     public function setId($id) : void 
     {
         $this->id = $id;
@@ -62,7 +63,7 @@ class animals {
         return $this->age;
     }
 
-
+    // fonctions (fonctionnent en dehors de l'objet)
     public function eat($aigle, $fish, $tiger, $bear) 
     {
         
@@ -88,11 +89,12 @@ class animals {
         
     }    
 
-
     public function display($aigle, $fish, $tiger, $bear)
     {
-        
+
     }
+
+     
 
 }
 

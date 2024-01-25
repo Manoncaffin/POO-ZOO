@@ -2,23 +2,23 @@
 
 class Employe {
 
-    private $id;
+    // private $id;
     private $name;
     private $age;
     private $sexe;
 
+    // méthodes (fonctions qui passent par l'objet)
+    // public function setId($id) : void
+    // {
+    //     $this->id = $id;
+    // }
 
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+    // public function getId()
+    // {
+    //     return $this->id;
+    // }
 
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function setName($name)
+    public function setName($name) : void
     {
         $this->name = $name;
     }
@@ -28,7 +28,7 @@ class Employe {
         return $this->name;
     }
 
-    public function setAge($age)
+    public function setAge($age) : void
     {
         $this->age = $age;
     }
@@ -38,7 +38,7 @@ class Employe {
         return $this->age;
     }
 
-    public function setSexe($sexe)
+    public function setSexe($sexe) : void
     {
         $this->sexe = $sexe;
 
@@ -48,6 +48,45 @@ class Employe {
     {
         return $this->sexe;
     }
+
+    // fonctions (fonctionnent en dehors de l'objet)
+    public function examinedEnclosure($enclosure)
+    {
+
+    }
+
+    public function cleanEnclosure($enclosure)
+    {
+
+    }
+
+    public function feedAnimals($animals)
+    {
+
+    }
+
+    public function addAnimals($animals)
+    {
+
+    }
+
+    public function deleteAnimals($animals)
+    {
+
+    }
+
+    public function transferAnimals($animals)
+    {
+
+    }
+
+    public function interfaceUser()
+    {
+
+    }
+    
+
+    
 
    
 }
