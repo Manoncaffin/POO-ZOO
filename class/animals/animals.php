@@ -79,17 +79,17 @@ abstract class Animals {
     public function eat() 
     {
         if ($this->isHungry) {
-            echo $this->species . " est en train de manger.\n";
+            echo $this->species . " eating.\n";
             $this->isHungry = false; 
         } else {
-             echo $this->species . " n'a pas faim pour le moment.\n";
+             echo $this->species . " not hungry at the moment.\n";
         }
     }
 
     public function sleep()
     {
         if ($this->isSleeping) {
-            echo $this->species . " est en train de dormir.\n";
+            echo $this->species . " sleeping.\n";
             $this->isSleeping = false; 
         } else {
 
@@ -99,7 +99,7 @@ abstract class Animals {
     public function sick()
     {
         if ($this->isSick) {
-            echo $this->species . " est malade.\n";
+            echo $this->species . " is sick.\n";
             $this->isSick = false; 
         } else {
 
@@ -118,9 +118,9 @@ abstract class Animals {
     public function displayCharacteristics()
     {
         echo "Nom : " . $this->name . "\n";
-        echo "Poids : " . $this->weight . "\n";
-        echo "Taille : " . $this->size . "\n";
-        echo "Âge : " . $this->age . "\n";
+        echo "Poids : " . $this->weight . "kilos.\n";
+        echo "Taille : " . $this->size . "mètres.\n";
+        echo "Âge : " . $this->age . "ans.\n";
     }
 
     

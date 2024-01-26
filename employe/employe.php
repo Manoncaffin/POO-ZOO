@@ -54,17 +54,25 @@ class Employe {
     public function examinedEnclosure(Enclosure $enclosure)
     {
         echo $this->name . " examines the enclosure.\n";
+        $enclosure->getName();
+
+        if ($enclosure->getCleanliness() === 'clean') {
+            echo "The enclosure is clean.\n";
+        } else {
+            echo "The enclosure needs cleaning.\n";
+        }
+
         echo "Animals in the enclosure:\n";
-        $enclosure->getName(); 
-        $enclosure->getcleanliness(); 
-        $enclosure->getanimalsNumber(); 
+        $enclosure->getanimalsNumber();  
+
         echo "Enclosure cleanliness: " . $enclosure->getCleanliness() . "\n";
+        $enclosure->getcleanliness(); 
     }
 
     public function cleanEnclosure(Enclosure $enclosure)
     {
-            echo $this->name . " cleans the enclosure.\n";
-            $enclosure->setCleanliness("clean");
+        echo $this->name . " cleans the enclosure.\n";
+        $enclosure->setCleanliness("clean");
     }
     
 
@@ -74,8 +82,21 @@ class Employe {
         $animals->eat();
     }
 
+    public function cureAnimals(Animals $animals)
+    {
+        echo $this->name . " care for animals in the enclosure.\n";
+        $animals->eat();
+    }
+
+    // revoir 
     public function addAnimals(Animals $animals, Enclosure $enclosure)
     {
+        if ($enclosure->getAnimalsNumber() === 6) {
+            echo "The enclosure is full.\n";
+        } else {
+            echo "There is still room.\n";
+        }
+
         echo $this->name . " adds a new animal to the enclosure.\n";
         $enclosure->addAnimals($animals);
     }
