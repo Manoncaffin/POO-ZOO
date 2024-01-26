@@ -3,7 +3,7 @@
 abstract class Enclosure {
     private $name;
     private $cleanliness;
-    private $animalsNumber;
+    private $animalsNumber = [];
 
     public function __construct($name, $cleanliness, $animalsNumber)
     {
@@ -44,27 +44,22 @@ abstract class Enclosure {
     }
 
      // fonctions (fonctionnent en dehors de l'objet)
-    public function propertyEnclosure($enclosure)
+    public function propertyEnclosure(Enclosure $enclosure)
     {
 
     }
 
-    public function propertyAnimals(Animal $animals)
+    public function propertyAnimals(Animals $animals)
     {
 
     }
 
-    public function addAnimals(Animal $animals)
+    public function addAnimals(Animals $animals)
     {
 
     }
 
-    public function deleteAnimals(Animal $animals)
-    {
-
-    }
-
-    public function cleanEnclosure($enclosure)
+    public function removeAnimals(Animals $animals)
     {
 
     }

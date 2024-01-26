@@ -50,43 +50,52 @@ class Employe {
     }
 
     // fonctions (fonctionnent en dehors de l'objet)
+    // partie à revoir
     public function examinedEnclosure(Enclosure $enclosure)
     {
-        var_dump($this->name . " examines the enclosure.");
+        echo $this->name . " examines the enclosure.\n";
+        echo "Animals in the enclosure:\n";
+        $enclosure->getName(); 
+        $enclosure->getcleanliness(); 
+        $enclosure->getanimalsNumber(); 
+        echo "Enclosure cleanliness: " . $enclosure->getCleanliness() . "\n";
     }
 
     public function cleanEnclosure(Enclosure $enclosure)
     {
-        var_dump($this->name . " clean the enclosure.");
+            echo $this->name . " cleans the enclosure.\n";
+            $enclosure->setCleanliness("clean");
     }
+    
 
-    public function feedAnimals(Animals $animals, Enclosure $enclosure)
+    public function feedAnimals(Animals $animals)
     {
-        var_dump($this->name . " treats an animal.");
+        echo $this->name . " feeds the animals in the enclosure.\n";
+        $animals->eat();
     }
 
     public function addAnimals(Animals $animals, Enclosure $enclosure)
     {
-        var_dump($this->name . " add an animal.");
+        echo $this->name . " adds a new animal to the enclosure.\n";
+        $enclosure->addAnimals($animals);
     }
 
-    public function deleteAnimals(Animals $animals, Enclosure $enclosure)
+    public function removeAnimals(Animals $animals, Enclosure $enclosure)
     {
-        var_dump($this->name . " removes an animal.");
+        echo $this->name . " removes an animal from the enclosure.\n";
+        $enclosure->removeAnimals($animals);
     }
 
-    public function transferAnimals(Animals $animals, Enclosure $enclosure)
+    public function transferAnimals(Animals $animals, Enclosure $fromEnclosure, $toEnclosure)
     {
-        var_dump($this->name . " transfers an animal.");
+        echo $this->name . " transfers an animal from one enclosure to another.\n";
+        $fromEnclosure->removeAnimals($animals);
+        $toEnclosure->addAnimal($animals);
     }
 
     public function interfaceUser()
     {
-        var_dump("Take place of " . $this->name . " in the zoo.");
+        echo "Welcome to the zoo!\n";
     }
     
-
-    
-
-   
 }

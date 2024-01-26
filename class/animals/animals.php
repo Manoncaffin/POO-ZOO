@@ -86,7 +86,7 @@ abstract class Animals {
         }
     }
 
-    public function sleep($aigle, $fish, $tiger, $bear)
+    public function sleep()
     {
         if ($this->isSleeping) {
             echo $this->species . " est en train de dormir.\n";
@@ -96,12 +96,7 @@ abstract class Animals {
         }
     }
 
-    public function wake($aigle, $fish, $tiger, $bear)
-    {
-        
-    }
-
-    public function sick($aigle, $fish, $tiger, $bear)
+    public function sick()
     {
         if ($this->isSick) {
             echo $this->species . " est malade.\n";
@@ -111,20 +106,24 @@ abstract class Animals {
         }
     }
 
-    public function makeSound($aigle, $fish, $tiger, $bear)
+    public function getSpecies()
     {
-            echo $this->species . " émet un son.\n";
-    }    
-
-    public function displayCharacteristics($aigle, $fish, $tiger, $bear)
-    {
-            echo "Nom : ";
-            echo "Poids : ";
-            echo "Taille :";
-            echo "Âge :";
+        return $this->species;
     }
 
-     
+    abstract public function makeSound();
+  
+    abstract public function wake();
+
+    public function displayCharacteristics()
+    {
+        echo "Nom : " . $this->name . "\n";
+        echo "Poids : " . $this->weight . "\n";
+        echo "Taille : " . $this->size . "\n";
+        echo "Âge : " . $this->age . "\n";
+    }
+
+    
 
 }
 
