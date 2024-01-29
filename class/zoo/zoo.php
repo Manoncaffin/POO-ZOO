@@ -2,22 +2,10 @@
 
 class Zoo {
 
-    // private $id;
-    private $name;
-    private $employe;
-    private $maxEnclosure;
-    private $enclosureArray;
-
-    // méthodes (fonctions qui passent par l'objet)
-    // public function setId($id) : void
-    // {
-    //     $this->id = $id;
-    // }
-
-    // public function getId()
-    // {
-    //     return $this->id;
-    // }
+    private string $name;
+    private Employe $employe;
+    private int $maxEnclosure;
+    private array $enclosureArray = [];
 
     public function setName($name) : void
     {
@@ -65,13 +53,18 @@ class Zoo {
 
     }
 
-    public function animalsNumber($animals)
+    public function animalNumber($animal)
     {
 
     }
 
     public function main()
     {
+        // while() {
+            // animaux setter aléatoire
+            // enclos setter aléatoire
+        }
+
     // while
 //     Pour chaque animal du zoo, on va aléatoirement modifier les valeurs des variables d'instance de cet animal (par exemple on le rend malade, on l'endort ou on l'affame).
 //     Pour chaque enclos, on modifie aléatoirement son état de propreté, sa salinité, etc...
@@ -79,10 +72,4 @@ class Zoo {
     }
 
 
-    
 
-    
-
-
-
-}

@@ -4,11 +4,32 @@ class Aquarium extends Enclosure {
     
     protected $waterSalinity;
 
-    public function __construct($name, $weight, $size, $age, $isHungry, $isSleeping, $isSick, $species, $waterSalinity) 
+    // Affiche les caractéristiques de l'enclos (nom, propreté, nombre d'animaux)
+    public function displayCharacteristicsEnclosure() : array
     {
-        parent::__construct($name, $weight, $size, $age, $isHungry, $isSleeping, $isSick, $species);
-        $this->waterSalinity = $waterSalinity;
+        return [
+            'Name: ' => $this->name,
+            'Cleanliness: ' =>$this->cleanliness,
+            'Animals number: ' =>$this->animalNumber,
+            'Water salinity: ' =>$this->waterSalinity,
+        ];
     }
+
+    public function addAnimal(Animal $animal)
+    {
+        if($this->animalNumber >= 6) {
+            echo "$this->animalNumber Animaux maximum, vous ne vpivez pas en ajouter d'autres";
+        } else {
+            echo "Vous avez ajouté un" . $animal->getspecies();
+            $this->animals[] = $animal;
+        }
+    }
+
+    public function maintainEnclosure()
+    {
+        
+    }
+
 }
 
 

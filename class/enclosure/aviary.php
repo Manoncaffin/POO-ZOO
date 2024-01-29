@@ -4,10 +4,30 @@ class Aviary extends Enclosure {
 
     protected $height;
 
-    public function __construct($name, $weight, $size, $age, $isHungry, $isSleeping, $isSick, $species, $height) 
+    // Affiche les caractéristiques de l'enclos (nom, propreté, nombre d'animaux)
+    public function displayCharacteristicsEnclosure() : array
     {
-        parent::__construct($name, $weight, $size, $age, $isHungry, $isSleeping, $isSick, $species);
-        $this->height = $height;
+        return [
+            'Name: ' => $this->name,
+            'Cleanliness: ' =>$this->cleanliness,
+            'Animals number: ' =>$this->animalNumber,
+            'Aviary height: ' =>$this->height,
+        ];
+    }
+
+    public function addAnimal(Animal $animal)
+    {
+        if($this->animalNumber >= 6) {
+            echo "$this->animalNumber Animaux maximum, vous ne vpivez pas en ajouter d'autres";
+        } else {
+            echo "Vous avez ajouté un" . $animal->getspecies();
+            $this->animals[] = $animal;
+        }
+    }
+
+    public function maintainEnclosure()
+    {
+        
     }
 }
 

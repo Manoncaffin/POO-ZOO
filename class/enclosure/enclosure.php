@@ -1,73 +1,92 @@
 <?php
 
 abstract class Enclosure {
-    private $name;
-    private $cleanliness;
-    private $animalsNumber = [];
+    protected string $name;
+    protected string $cleanliness;
+    protected int $animalNumber;
 
-    public function __construct($name, $cleanliness, $animalsNumber)
-    {
-        $this->name = $name;
-        $this->cleanliness = $cleanliness;
-        $this->animalsNumber = $animalsNumber;
-    }
+    // Je ne comprends pas ?
+    protected array $animals = [];
 
     // méthodes (fonctions qui passent par l'objet)
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }
 
-    public function getName()
+    public function getName() : string
     {
         return $this->name;
     }
 
-    public function setCleanliness($cleanliness)
+    public function setCleanliness(string $cleanliness)
     {
         $this->cleanliness = $cleanliness;
     }
 
-    public function getCleanliness()
+    public function getCleanliness() : string
     {
         return $this->cleanliness;
     }
 
-    public function setAnimalsNumber($animalsNumber)
+    public function setAnimalNumber(array $animalNumber)
     {
-        $this->animalsNumber = $animalsNumber;
+        $this->animalNumber = $animalNumber;
     }
 
-    public function getAnimalsNumber()
+    public function getAnimalNumber() : array
     {
-        return $this->animalsNumber;
+        return $this->animalNumber;
     }
 
-     // fonctions (fonctionnent en dehors de l'objet)
-    public function propertyEnclosure(Enclosure $enclosure)
+     // Fonctions (fonctionnent en dehors de l'objet)
+    public function cleanlinessEnclosure(Enclosure $enclosure, string $cleanliness)
     {
+    // Vérifie la propreté 
+    if ($cleanliness === 'propre') {
+        echo "The condition of the enclosure is clean.";
+    } elseif ($cleanliness === 'passable') {
+        echo "The condition of the enclosure is fair, it will have to be cleaned soon.";
+    } elseif ($cleanliness === 'sale') {
+        echo "The condition of the enclosure is bad, it needs to be cleaned.";
+    } else {
+        echo "Invalid cleanliness level.";
+    }
+}
 
+    // le tableau est dans "animal.php"
+    public function displayCharacteristicsAnimals(array $animals)
+    {
+        foreach ($animals as $animal) {
+            $animal->displayCharacteristicsAnimals();
+        }
     }
 
-    public function propertyAnimals(Animals $animals)
-    {
+    abstract public function addAnimal(Animal $animal);
 
+    public function removeAnimal(Animal $animal)
+    {
+        if(count($this->animals) >= 1) {
+            foreach ($this->animals as $key => $value) {
+                array_splice($this->animals, $key, $key);
+                $this->animalNumber = count($this->animals);
+            }
+        } else {
+            echo "You cannot remove an animal because there is no animal in the enclosure.";
+        }
     }
 
-    public function addAnimals(Animals $animals)
+    abstract public function maintainEnclosure();
+
+    // Affiche les caractéristiques de l'enclos (nom, propreté, nombre d'animaux)
+    public function displayCharacteristicsEnclosure() : array
     {
-
+        return [
+            'Name: ' => $this->name,
+            'Cleanliness: ' =>$this->cleanliness,
+            'Animals number: ' =>$this->animalNumber
+        ];
     }
-
-    public function removeAnimals(Animals $animals)
-    {
-
-    }
-
-    // abstract public function detailEnclosure()
-    // {
-
-    // }
 
 
 

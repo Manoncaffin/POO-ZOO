@@ -1,25 +1,9 @@
 <?php
 
-class Eagle extends Animals 
+class Eagle extends Animal 
 {
-    public function __construct($name, $weight, $size, $age, $isHungry, $isSleeping, $isSick, $species) 
-    {
-        parent::__construct($name, $weight, $size, $age, $isHungry, $isSleeping, $isSick, $species);
-    }
-
-    // appelle la fonction "makesound" de la class parent "Animals"
-    public function specificSound()
-    {
-        $this->makeSound();
-    }
-
-    public function specificAction()
-    {
-        $this->wake();
-    }
-
-    // définir la fonction "makesound" pour la class "Eagle"
-    public function makeSound()
+    // appelle la fonction "makesound" de la class parent "Animal"
+    public function makeSound() : void
     {
         echo "The eagle chirps.\n";
     }  
