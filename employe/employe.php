@@ -4,6 +4,7 @@ class Employe {
 
     private string $name;
     private int $age;
+    private string $gender;
 
     // méthodes (fonctions qui passent par l'objet)
 
@@ -27,70 +28,98 @@ class Employe {
         return $this->age;
     }
 
-    // fonctions (fonctionnent en dehors de l'objet)
-    // partie à revoir, mettre méthode afficher infos animaux et afficher infos enclos
-    public function examinedEnclosure(Enclosure $enclosure)
+    public function setGender($gender)
     {
-        echo $this->name . " examines the enclosure.\n";
-        $enclosure->getName();
-
-        if ($enclosure->getCleanliness() === 'clean') {
-            echo "The enclosure is clean.\n";
-        } else {
-            echo "The enclosure needs cleaning.\n";
-        }
-
-        echo "Animals in the enclosure:\n";
-        $enclosure->getanimalNumber();  
-
-        echo "Enclosure cleanliness: " . $enclosure->getCleanliness() . "\n";
-        $enclosure->getcleanliness(); 
-    }
-
-    // si c'est sale et vide et mettre la méthode qui est dans enclos
-    public function cleanEnclosure(Enclosure $enclosure)
-    {
-        echo $this->name . " cleans the enclosure.\n";
-        $enclosure->setCleanliness("clean");
+        $this->gender = $gender;
     }
     
-    // revoir, faire condition pour que l'employé nourrissent les animaux quand ils ont faim
-    public function feedAnimal(Enclosure $enclosure)
+    public function getGender()
     {
-        echo $this->name . " feeds the animals in the enclosure.\n";
-        $animal->eat();
+        return $this->gender;
     }
 
-    // méthode animaux malade
-    public function cureAnimal(Animal $animal)
+    // fonctions (fonctionnent en dehors de l'objet)
+    public function examinedEnclosure(Enclosure $enclosure)
     {
-        echo $this->name . " care for animals in the enclosure.\n";
-        $animal->eat();
-    }
-
-    // revoir et ajouter la méthode de enclos
-    public function addAnimal(Animal $animal, Enclosure $enclosure)
-    {
-        if ($enclosure->getAnimalNumber() === 6) {
-            echo "The enclosure is full.\n";
+        echo $this->name . " examines the enclosure: " . $enclosure->getName() . "\n";
+        
+        if($enclosure->getCleanliness() === 'clean') {
+            echo "Enclosure cleanliness: the enclosure is clean.\n";
         } else {
-            echo "There is still room.\n";
+            echo "Enclosure cleanliness: the enclosure needs cleaning.\n";
         }
 
-        echo $this->name . " adds a new animal to the enclosure.\n";
-        $enclosure->addAnimal($animal);
+        echo "Animals in the enclosure: " . $enclosure->getanimalNumber() . "\n";
+
+        if($enclosure->getanimalNumber() === 6) {
+            echo "The enclosure is full.";
+        } else {
+            echo "There is still space.";
+        }
     }
-    // revoir et ajouter la méthode de enclos
-    public function removeAnimal(Enclosure $enclosure)
+
+    // la condition est rappelée dans animal
+    public function feedAnimal(Animal $animal)
     {
-        echo $this->name . " removes an animal from the enclosure.\n";
+        if($animal->getIsHungry()) {
+            $animal->setIsHungry(false);
+            echo "The employee fed the animals well.";
+        } else {
+            echo "The animal is not hungry.";
+        }
+    }
+
+    // revoir
+    public function sleep(Animal $animal)
+    {
+        if ($animal->getIsSleeping()) {
+            $animal->setIsSleeping(false);
+            echo ""
+        } else {
+
+        }
+    }
+
+    // la condition est rappellée dans enclos
+    public function cleanlinessEnclosure(Enclosure $enclosure)
+    {
+        if ($enclosure->getCleanliness() === 'clean') {
+            echo "The condition of the enclosure is clean.";
+        } elseif ($enclosure->getCleanliness() === 'fair') {
+            $enclosure->setCleanliness('propre');
+            echo "The enclosure was passable, it became clean.";
+        } elseif ($enclosure->getCleanliness() === 'dirty') {
+            $enclosure->setCleanliness('passable');
+            echo "The enclosure was dirty, it became a little cleaner!";
+        } else {
+            echo "Invalid cleanliness level.";
+        }
+    }
+    
+   // faire la condition ici et la rappeler dans animal
+    public function cureAnimal(Animal $animal)
+    {
+        if($animal->getIsSick()) {
+            $animal->setIsSick(false);
+            echo "The employee takes care of the animals.";
+        } else {
+            echo "The employee takes care of the animals.";
+        }
+    }
+
+    public function addAnimal(Animal $animal, Enclosure $enclosure)
+    {
+        $enclosure->setAnimalNumber($animal);
+    }
+
+    public function removeAnimal(Enclosure $enclosure, Animal $animal)
+    {
         $enclosure->removeAnimal($animal);
     }
 
     // revoir faire condition pour que les animaux soient transférés quand l'employé nettoie
     public function transferAnimal(Enclosure $fromEnclosure, Enclosure $toEnclosure, Animal $animal)
     {
-        echo $this->name . " transfers an animal from one enclosure to another.\n";
         $fromEnclosure->removeAnimal($animal);
         $toEnclosure->addAnimal($animal);
     }
@@ -99,5 +128,7 @@ class Employe {
     {
         echo "Welcome to the zoo!\n";
     }
-    
+
+
+
 }

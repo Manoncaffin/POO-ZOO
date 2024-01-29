@@ -18,9 +18,9 @@ class Terrarium extends Enclosure {
     public function addAnimal(Animal $animal)
     {
         if($this->animalNumber >= 6) {
-            echo "$this->animalNumber Animaux maximum, vous ne vpivez pas en ajouter d'autres";
+            echo $this->animalNumber . " :limit reached, you cannot add more tigers or bears.";
         } else {
-            echo "Vous avez ajouté un" . $animal->getspecies();
+            echo "You have added a/an" . $animal->getspecies();
             $this->animals[] = $animal;
         }
     }

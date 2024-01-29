@@ -5,7 +5,7 @@ class Zoo {
     private string $name;
     private Employe $employe;
     private int $maxEnclosure;
-    private array $enclosureArray = [];
+    private array $enclosure = [];
 
     public function setName($name) : void
     {
@@ -37,14 +37,14 @@ class Zoo {
         return $this->maxEnclosure;
     }
 
-    public function setEnclosureArray($enclosureArray)
+    public function setEnclosureArray($enclosure)
     {
-        $this->enclosureArray = $enclosureArray;
+        $this->enclosure = $enclosure;
     }
 
-    public function getEnclosureArray()
+    public function getEnclosure()
     {
-        return $this->enclosureArray;
+        return $this->enclosure;
     }
 
     // fonctions (fonctionnent en dehors de l'objet)

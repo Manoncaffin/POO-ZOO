@@ -5,7 +5,6 @@ abstract class Enclosure {
     protected string $cleanliness;
     protected int $animalNumber;
 
-    // Je ne comprends pas ?
     protected array $animals = [];
 
     // méthodes (fonctions qui passent par l'objet)
@@ -29,25 +28,35 @@ abstract class Enclosure {
         return $this->cleanliness;
     }
 
-    public function setAnimalNumber(array $animalNumber)
+    public function setAnimalNumber(int $animalNumber)
     {
         $this->animalNumber = $animalNumber;
     }
 
-    public function getAnimalNumber() : array
+    public function getAnimalNumber() : int
     {
         return $this->animalNumber;
     }
 
-     // Fonctions (fonctionnent en dehors de l'objet)
-    public function cleanlinessEnclosure(Enclosure $enclosure, string $cleanliness)
+    public function setAnimalsArray($animals)
+    {
+        $this->animals = $animals;
+    }
+
+    public function getAnimalsArray() : array 
+    {
+        return $this->animals;
+    }
+
+    // Fonctions (fonctionnent en dehors de l'objet)
+    public function cleanlinessEnclosure()
     {
     // Vérifie la propreté 
-    if ($cleanliness === 'propre') {
+    if ($this->cleanliness === 'propre') {
         echo "The condition of the enclosure is clean.";
-    } elseif ($cleanliness === 'passable') {
+    } elseif ($this->cleanliness === 'passable') {
         echo "The condition of the enclosure is fair, it will have to be cleaned soon.";
-    } elseif ($cleanliness === 'sale') {
+    } elseif ($this->cleanliness === 'sale') {
         echo "The condition of the enclosure is bad, it needs to be cleaned.";
     } else {
         echo "Invalid cleanliness level.";
@@ -62,12 +71,22 @@ abstract class Enclosure {
         }
     }
 
-    abstract public function addAnimal(Animal $animal);
+    public function addAnimal(Animal $animal) {
+        if ($this->getanimalNumber() >= 6) {
+            echo "$this->animalNumber maximum, the enclosure is full.\n";
+        } else {
+            if($animal instanceof Tiger || $animal instanceof Bear) {
+                echo "You are added an" . $animal->getSpecies();
+                $this->animals[] = $animal;
+            }
+        }
+    }
 
     public function removeAnimal(Animal $animal)
     {
         if(count($this->animals) >= 1) {
             foreach ($this->animals as $key => $value) {
+
                 array_splice($this->animals, $key, $key);
                 $this->animalNumber = count($this->animals);
             }
@@ -79,6 +98,7 @@ abstract class Enclosure {
     abstract public function maintainEnclosure();
 
     // Affiche les caractéristiques de l'enclos (nom, propreté, nombre d'animaux)
+    // pourquoi on ne fait pas de set ou de get pour animalNumber ?
     public function displayCharacteristicsEnclosure() : array
     {
         return [

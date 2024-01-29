@@ -64,14 +64,14 @@ abstract class Animal {
              echo $this->species . " not hungry at the moment.\n";
         }
     }
-
+    // revoir
     public function sleep()
     {
         if ($this->isSleeping) {
             echo $this->species . " sleeping.\n";
-            $this->isSleeping = false; 
+            $this->isSleeping = true; 
         } else {
-
+            echo $this->species . " are awake.\n";
         }
     }
 
@@ -81,7 +81,7 @@ abstract class Animal {
             echo $this->species . " is sick.\n";
             $this->isSick = true; 
         } else {
-
+            echo $this->species . " are fine.\n";
         }
     }
 
@@ -96,46 +96,38 @@ abstract class Animal {
         ];
     }
 
+    // condition dans employé (nourrit les animaux et rappeler ici)
     public function setIsHungry(bool $isHungry) : void
     {
         $this->isHungry = $isHungry;
     }
 
-    public function isIsHungry() : bool
+    public function getIsHungry() : bool
     {
         return $this->isHungry;
     }
 
+    // faire la condition ici 
     public function setIsSleeping(bool $isSleeping) : void
     {
         $this->isSleeping = $isSleeping;
     }
 
-    public function isIsSleeping() : bool
+    public function getIsSleeping() : bool
     {
         return $this->isSleeping;
     }
 
+    // condition dans employé (soigne les animaux malades) et rappeler ici 
     public function setIsSick(bool $isSick) : void
     {
         $this->isSick = $isSick;
     }
 
-    public function isIsSick() : bool
+    public function getIsSick() : bool
     {
         return $this->isSick;
     }
 }
 
-
-
-// abstract public function addAnimal(Animal $animal)
-// {
-//     if($this->animalNumber >= 6) {
-//         echo "$this->animalNumber Animaux maximum, vous ne vpivez pas en ajouter d'autres";
-//     } else {
-//         echo "Vous avez ajouté un" . $animal->getspecies();
-//         $this->animals[] = $animal;
-//     }
-// }
 ?>
