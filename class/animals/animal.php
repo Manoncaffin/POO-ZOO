@@ -55,6 +55,7 @@ abstract class Animal {
         return $this->age;
     }
 
+    // revoir
     public function eat() 
     {
         if ($this->isHungry) {
@@ -74,7 +75,7 @@ abstract class Animal {
             echo $this->species . " are awake.\n";
         }
     }
-
+    // revoir
     public function sick()
     {
         if ($this->isSick) {

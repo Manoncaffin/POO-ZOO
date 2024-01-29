@@ -61,22 +61,16 @@ class Employe {
     // la condition est rappelée dans animal
     public function feedAnimal(Animal $animal)
     {
-        if($animal->getIsHungry()) {
-            $animal->setIsHungry(false);
-            echo "The employee fed the animals well.";
-        } else {
-            echo "The animal is not hungry.";
+        if ($animal->getIsHungry()) {
+            if ($animal->getIsSleeping()) {
+                echo "The animal is sleeping and doesn't need to eat right now.";
+            } else {
+                $animal->setIsHungry(true);
+                echo "The employee fed the animals well.";
         }
-    }
-
-    // revoir
-    public function sleep(Animal $animal)
-    {
-        if ($animal->getIsSleeping()) {
-            $animal->setIsSleeping(false);
-            echo ""
         } else {
-
+                echo "The animal is not hungry.";
+            }
         }
     }
 
