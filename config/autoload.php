@@ -1,4 +1,5 @@
 <?php
+
 // Strict
 // declare(strict_types=1);
 

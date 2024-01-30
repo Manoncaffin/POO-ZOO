@@ -48,21 +48,6 @@ abstract class Enclosure {
         return $this->animals;
     }
 
-    // Fonctions (fonctionnent en dehors de l'objet)
-    public function cleanlinessEnclosure()
-    {
-    // Vérifie la propreté 
-    if ($this->cleanliness === 'propre') {
-        echo "The condition of the enclosure is clean.";
-    } elseif ($this->cleanliness === 'passable') {
-        echo "The condition of the enclosure is fair, it will have to be cleaned soon.";
-    } elseif ($this->cleanliness === 'sale') {
-        echo "The condition of the enclosure is bad, it needs to be cleaned.";
-    } else {
-        echo "Invalid cleanliness level.";
-    }
-}
-
     // le tableau est dans "animal.php"
     public function displayCharacteristicsAnimals(array $animals)
     {
@@ -78,6 +63,7 @@ abstract class Enclosure {
             if($animal instanceof Tiger || $animal instanceof Bear) {
                 echo "You are added an" . $animal->getSpecies();
                 $this->animals[] = $animal;
+                $this->setAnimalNumber($this->animalNumber +1);
             }
         }
     }
@@ -94,8 +80,6 @@ abstract class Enclosure {
             echo "You cannot remove an animal because there is no animal in the enclosure.";
         }
     }
-
-    abstract public function maintainEnclosure();
 
     // Affiche les caractéristiques de l'enclos (nom, propreté, nombre d'animaux)
     // pourquoi on ne fait pas de set ou de get pour animalNumber ?

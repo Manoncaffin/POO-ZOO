@@ -6,6 +6,11 @@ class Zoo {
     private Employe $employe;
     private int $maxEnclosure;
     private array $enclosure = [];
+    private int $id;
+    
+    public function __construct(array $data) {
+        $this->name = $data['zooName'];
+    }
 
     public function setName($name) : void
     {
@@ -42,9 +47,19 @@ class Zoo {
         $this->enclosure = $enclosure;
     }
 
-    public function getEnclosure()
+    public function getEnclosureArray()
     {
         return $this->enclosure;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     // fonctions (fonctionnent en dehors de l'objet)
@@ -69,6 +84,10 @@ class Zoo {
 //     Pour chaque animal du zoo, on va aléatoirement modifier les valeurs des variables d'instance de cet animal (par exemple on le rend malade, on l'endort ou on l'affame).
 //     Pour chaque enclos, on modifie aléatoirement son état de propreté, sa salinité, etc...
 //     Enfin on passe la main à l'employé (donc à vous, utilisateur) pour qu'il s'occupe du zoo.
+
+
+
+
     }
 
 

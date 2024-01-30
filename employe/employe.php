@@ -72,7 +72,7 @@ class Employe {
                 echo "The animal is not hungry.";
             }
         }
-    }
+   
 
     // la condition est rappellée dans enclos
     public function cleanlinessEnclosure(Enclosure $enclosure)
@@ -103,7 +103,7 @@ class Employe {
 
     public function addAnimal(Animal $animal, Enclosure $enclosure)
     {
-        $enclosure->setAnimalNumber($animal);
+        $enclosure->addAnimal($animal);
     }
 
     public function removeAnimal(Enclosure $enclosure, Animal $animal)

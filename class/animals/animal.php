@@ -59,7 +59,7 @@ abstract class Animal {
     public function eat() 
     {
         if ($this->isHungry) {
-            echo $this->species . " eating.\n";
+            echo $this->species . " are hungry.\n";
             $this->isHungry = false; 
         } else {
              echo $this->species . " not hungry at the moment.\n";
