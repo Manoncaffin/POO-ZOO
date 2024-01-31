@@ -21,7 +21,7 @@ require_once 'config/db.php';
     <header>
         <div class="container row">
             <div class="d-flex justify-content-start pt-5 pb-3 px-5">
-                <h1>Create your enclosures</h1>
+                <h1>Create your enclosures!</h1>
             </div>
         </div>
     </header>
@@ -29,10 +29,10 @@ require_once 'config/db.php';
     <main>
 
         <div class="container row d-flex justify-content-start pb-5 px-5">
-            <p><strong>Choose your enclosure's and species!</strong></p>
+            <p><strong>Choose the name of your enclosure, the type, the number and species!</strong></p>
         </div>
 
-        <form action="./class/zoo/zooManager.php" method="post">
+        <form action="./class/EnclosureManager.php" method="post">
             <div class="d-flex justify-content-start row px-5">
                 <div class="name d-flex justify-content-start pt-5 pb-2">
                     <input type="text" placeholder="Name of your enclosure" name="nameEnclosure" class="px-2 rounded-2 border border-dark-subtle">
@@ -50,8 +50,8 @@ require_once 'config/db.php';
                 </div>
 
                 <div class="col-9 d-flex justify-content-start pt-5 pb-2 px-5">
-                    <select class="form-select" aria-label="Default select example" name="maxEnclosure">
-                        <option selected>Number of this enclosure</option>
+                    <select class="form-select" aria-label="Default select example" name="maxAnimals">
+                        <option selected>Number of animals</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

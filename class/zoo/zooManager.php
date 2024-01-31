@@ -1,50 +1,32 @@
 <?php
-
-require_once ('../config/db.php');
-
-$zooManager = new zooManager($db);
-$createZoo = $zooManager->main();
-
-if(
-    isset($_POST["zooName"]) && !empty($_POST["zooName"])&&
-    isset($_POST["yourName"]) && !empty($_POST["yourName"]) &&
-    isset($_POST["yourAge"]) && !empty($_POST["yourAge"]) &&
-    isset($_POST["yourGender"]) && !empty($_POST["yourGender"]) &&
-    isset($_POST["maxEnclosure"]) && !empty($_POST["maxEnclosure"])
-
-) { 
-
-    $zooManager = new zooManager($db);
-
-    $zoo = new zoo([
-        'zooName' => $_POST['zooName'],
-        'yourName' => $_POST['yourName'],
-        'yourAge' => $_POST['yourAge'],
-        'yourGender' => $_POST['yourGender'],
-        'maxEnclosure' => $_POST['maxEnclosure']
-    ]);
-}
-
-$zooManager->add($zoo)
+// cette page insère les infos
 
 class zooManager {
     private $db;
-    private array $zooArray = [];   
-}
+    // private array $zooArray = [];   
+
 
 public function __construct(PDO $db)
 {
     $this->db = $db;
 }
+
 public function add($zoo)
 {
-    $request = $this->db->prepare('INSERT INTO zoo (name)
-    VALUES (:name)');
+    //ajouter les autres propriétés
+    $request = $this->db->prepare('INSERT INTO zoo (name, max_enclosure) 
+    VALUES (:name, :max_enclosure)');
     $request->execute([
-        'zooName' => $zoo->getName(),
+        'name' => $zoo->getName(),
+        'max_enclosure' => $zoo->getEnclosureNumber(),
     ]);
+
     $id = $this->db->lastInsertId();
+    // affecte nouvelle valeur
     $zoo->setId($id);
+    // garde la valeur de l'ID dans les autres pages
+    $_SESSION['id_zoo'] = $id;
+} 
 }
 
 ?>

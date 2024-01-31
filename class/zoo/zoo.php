@@ -4,12 +4,13 @@ class Zoo {
 
     private string $name;
     private Employe $employe;
-    private int $maxEnclosure;
-    private array $enclosure = [];
+    private int $maxEnclosure = 6;
     private int $id;
     
     public function __construct(array $data) {
         $this->name = $data['zooName'];
+        // pour choisir la valeur entre 1 et 6
+        $this->maxEnclosure = $data['max_enclosure'];
     }
 
     public function setName($name) : void
@@ -40,16 +41,6 @@ class Zoo {
     public function getEnclosureNumber()
     {
         return $this->maxEnclosure;
-    }
-
-    public function setEnclosureArray($enclosure)
-    {
-        $this->enclosure = $enclosure;
-    }
-
-    public function getEnclosureArray()
-    {
-        return $this->enclosure;
     }
 
     public function setId($id)

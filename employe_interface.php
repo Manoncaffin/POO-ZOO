@@ -38,36 +38,31 @@ require_once('./class/zoo/zooManager.php');
     </header>
 
     <main>
-
         <div class="container row d-flex justify-content-start pb-5 px-5">
-            <p><strong>1st step: Choose the name of your zoo and choose the number of enclosures!</strong></p>
+            <p><strong>2nd step: Take the place of the employe, create your person!</strong></p>
         </div>
 
-        <form action="./treatment/treatment_zoo.php" method="post">
+        <form action="./treatment/treatment_employe.php" method="post">
             <div class="d-flex justify-content-start row px-5">
+                <div class="name d-flex justify-content-start pt-5 pb-2">
+                    <input type="text" placeholder="Your name" name="yourName" class="px-2 rounded-2 border border-dark-subtle">
+                </div>
 
                 <div class="name d-flex justify-content-start pt-5 pb-2">
-                    <input type="text" placeholder="Zoo name" name="zooName" class="px-2 rounded-2 border border-dark-subtle">
+                    <input type="text" placeholder="Your age" name="yourAge" class="px-2 rounded-2 border border-dark-subtle">
                 </div>
-
                 <div class="col-md-3 d-flex justify-content-start pt-5 pb-2">
-                    <select class="form-select" aria-label="Default select example" name="maxEnclosure">
-                        <option selected>Choose the number of enclosures</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="5">6</option>
+                    <select class="form-select" aria-label="Default select example" name="yourGender" class="px-2 rounded-2 border border-dark-subtle">
+                        <option selected>Your gender</option>
+                        <option value="1">Woman</option>
+                        <option value="2">Men</option>
                     </select>
                 </div>
-
                 <div class="d-flex justify-content-start pt-5">
                     <button class="btn btn-primary" type="submit" href="./employe_interface.php">To validate</button>
                 </div>
             </div>
         </form>
-
     </main>
 </body>
 

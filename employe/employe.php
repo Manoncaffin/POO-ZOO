@@ -5,8 +5,28 @@ class Employe {
     private string $name;
     private int $age;
     private string $gender;
+    private string $id;
+    private string $id_zoo;
+
+
+    public function __construct(array $data) {
+        $this->name = $data['employeName']; // la valeur dans le tableau est un nom choisi par hasard
+        $this->age = $data['employeAge'];
+        $this->gender = $data['employeGender'];
+        // $this->id = $data['id'];
+        // $this->id = $data['id_zoo'];
+    }
 
     // méthodes (fonctions qui passent par l'objet)
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
 
     public function setName($name) : void
     {
@@ -36,6 +56,16 @@ class Employe {
     public function getGender()
     {
         return $this->gender;
+    }
+
+    public function setId_zoo($id_zoo)
+    {
+        $this->id_zoo = $id_zoo;
+    }
+
+    public function getId_zoo()
+    {
+        return $this->id_zoo;
     }
 
     // fonctions (fonctionnent en dehors de l'objet)
@@ -122,6 +152,7 @@ class Employe {
     {
         echo "Welcome to the zoo!\n";
     }
+
 
 
 

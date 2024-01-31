@@ -4,8 +4,21 @@ abstract class Enclosure {
     protected string $name;
     protected string $cleanliness;
     protected int $animalNumber;
+    protected int $typeEnclosure;
+    protected int $id;
+    protected int $id_zoo;
+   
 
     protected array $animals = [];
+
+
+    public function __construct(array $data) {
+        $this->name = $data['nameEnclosure']; // la valeur dans le tableau est un nom choisi par hasard
+        $this->typeEnclosure = $data['typeEnclosure'];
+        $this->animalNumber = $data['maxAnimals'];
+        // $this->id = $data['id'];
+        // $this->id_zoo = $data['id_zoo'];
+    }
 
     // méthodes (fonctions qui passent par l'objet)
     public function setName(string $name)
@@ -46,6 +59,36 @@ abstract class Enclosure {
     public function getAnimalsArray() : array 
     {
         return $this->animals;
+    }
+
+    public function setTypeEnclosure($typeEnclosure)
+    {
+        $this->typeEnclosure = $typeEnclosure;
+    }
+
+    public function getTypeEnclosure()
+    {
+        return $this->typeEnclosure;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId_zoo($id_zoo)
+    {
+        $this->id_zoo = $id_zoo;
+    }
+
+    public function getId_zoo()
+    {
+        return $this->id_zoo;
     }
 
     // le tableau est dans "animal.php"
@@ -92,7 +135,7 @@ abstract class Enclosure {
         ];
     }
 
-
+ 
 
 }
 
