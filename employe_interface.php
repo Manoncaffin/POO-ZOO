@@ -1,18 +1,8 @@
 <?php
 
 require_once('./config/db.php');
-require_once('./class/zoo/zoo.php');
-require_once('./class/zoo/zooManager.php');
-
-
-
-// intance du zoo
-
-// var_dump($zoo);
-
-// $employe = new employe();
-
-
+require_once('./class/employe/employe.php');
+require_once('./class/employe/employeManager.php');
 
 ?>
 

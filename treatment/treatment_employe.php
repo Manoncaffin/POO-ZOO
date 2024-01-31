@@ -1,11 +1,10 @@
 <?php
-
-session_start(); // car $_SESSION['id_employe'] dans employeManager.php
-
 // cette page récupère les infos 
 require_once('../config/db.php');
 require_once('../employe/employeManager.php');
 require_once('../employe/employe.php');
+
+session_start(); // car $_SESSION['id_employe'] dans employeManager.php
 
 if(
 
@@ -24,5 +23,7 @@ isset($_POST["yourGender"]) && !empty($_POST["yourGender"])
 ]);
 
 $employeManager->add($employe);
+
+header('Location: ../enclosure_interface.php');
 
 }

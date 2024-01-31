@@ -1,7 +1,8 @@
 <?php
 
-// require_once 'config/autoload.php';
-require_once 'config/db.php';
+require_once('./config/db.php');
+require_once('./class/enclosure/enclosure.php');
+require_once('./class/enclosure/enclosureManager.php');
 
 ?>
 

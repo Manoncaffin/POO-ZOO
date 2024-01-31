@@ -1,11 +1,10 @@
 <?php
-
-session_start(); // car $_SESSION['id_employe'] dans employeManager.php
-
 // cette page récupère les infos 
 require_once('../config/db.php');
 require_once('../enclosure/enclosureManager.php');
 require_once('../enclosure/enclosure.php');
+
+session_start(); // car $_SESSION['id_employe'] dans employeManager.php
 
 if(
 
